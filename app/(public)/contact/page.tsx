@@ -29,11 +29,16 @@ export default function Contact() {
     const [message_text, setMessageText] = useState("")
 
 
+
     const onFinish = async (values: any) => {
         setIsSaving(true)
         const form_data = new FormData();
         form_data.set("user_id", user?.id)
         form_data.set("department", department)
+        form_data.set("user_name", user?.name)
+        form_data.set("user_phone", user?.phone1)
+        form_data.set("user_whatsapp", user?.phone2)
+        form_data.set("user_email", user?.email)
         form_data.set("message", message_text)
 
         const fetch_send_message = await fetch("/api/public/contact", { 
@@ -42,7 +47,6 @@ export default function Contact() {
             next: { revalidate: 300 } 
         })
         const response_message = await fetch_send_message.json();
-        console.log(response_message)
         setIsSaving(false)
         setIsSaved(true)
 
@@ -183,7 +187,7 @@ export default function Contact() {
                                     <div>Your Message</div>
                                     <Form.Item
                                         name="message"
-                                        rules={[{ required: true, message: 'Message is require' }]}
+                                        rules={[{ required: true, message: 'Message is required' }]}
                                     >
                                         <TextArea showCount maxLength={250} rows={4} onChange={(e) => {
                                             setMessageText(e.target.value)

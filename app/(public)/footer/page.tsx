@@ -46,10 +46,10 @@ export default function FooterPublic() {
               <h2 className="title-font font-medium text-green-500 tracking-widest text-sm mb-3">SITE LINKS</h2>
               <nav className="list-none mb-10">
                 <li className='mb-2'>
-                  <Link href='/help/buyer/how-to-buy-g1-garlic' className="hover:text-green-500">Home</Link>
+                  <Link href='/' className="hover:text-green-500">Home</Link>
                 </li>
                 <li className='mb-2'>
-                  <Link href='/help/buyer/how-to-buy-g1-garlic' className="hover:text-green-500">Browse Sellers By City</Link>
+                  <Link href='/cities' className="hover:text-green-500">Browse Sellers By City</Link>
                 </li>
                 <li className='mb-2'>
                   <Link href='/packages' className="hover:text-green-500">Start Selling G1 Garlic</Link>

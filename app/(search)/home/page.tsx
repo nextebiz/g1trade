@@ -212,7 +212,7 @@ export default function HomePublic({ params: { session } }: Props) {
                         <div className='m-3'>
 
                           <div className='my-3 flex justify-center md:justify-start'>
-                            Displating {search_result.length} of  {total} results
+                            Displaying {search_result.length} of  {total} results
                           </div>
 
                           {(take + skip) >= total ? "" :

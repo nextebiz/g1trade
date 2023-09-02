@@ -277,6 +277,21 @@ export default function HeaderPublic({ params: { session } }: Props) {
                                 </div>
                             </Link>
                         </div>
+
+                        <div className='mb-4'>
+                            <Link onClick={() => {
+                                onClose()
+                            }} className="hover:text-gray-200" href={"/contact"}>
+                                <div className='flex items-center'>
+                                    <div className='text-sm mr-3'>
+                                        <RightOutlined />
+                                    </div>
+                                    <div>
+                                        Contact Us
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
                     </div>
                 </Drawer>
             </ConfigProvider>

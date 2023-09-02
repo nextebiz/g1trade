@@ -41,7 +41,7 @@ export default function BrowseByCities() {
     return (
         <div className='' style={{ width: "100%" }}>
             <div className='text-black bg-white p-3 sm:p-5 pb-5 body-content' >
-                <div className='text-2xl mb-6'>Browse G1 Garlic Sellers By City</div>
+                <div className='text-2xl mb-6'>Browse By City <span className='hidden md:inline-block'>|</span> <span className='text-lg block md:inline-block'>Find G1 Garlic Sellers Near You</span></div>
                 <section>
                     {page_loaded ?
                         <div className='flex flex-wrap md:flex-nowrap'>
@@ -74,7 +74,7 @@ export default function BrowseByCities() {
                                                         href={"#"}
                                                     //href={`/?page=1&pid=${province.id}`}
                                                     >
-                                                        <h2 className='text-lg text-black hover:text-green-600 transition-all'>{province.name}</h2>
+                                                        <h2 className='text-lg text-black inline-block py-2 m-0 px-4 rounded-full  hover:text-white hover:bg-green-600 transition-all '>{province.name}</h2>
                                                     </Link>
                                                     <div className='py-2'>
                                                         <hr />
