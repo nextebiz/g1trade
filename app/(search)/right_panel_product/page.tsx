@@ -80,16 +80,18 @@ export default function RightPanelProduct({ params: { product } }: Props) {
     }, [])
     return (
         <div className='flex flex-wrap sm:flex-nowrap  border-b border-b-slate-200 py-3 w-full bg-white'>
-            <div className=' sm:flex-initial w-full sm:w-56 lg:w-80 bg-slate-100 p-2 sm:p-2 ml-0 mb-2 sm:mb-0 md:ml-2 scale-100 hover:scale-105 transition-all relative  '
-            // style={{ width: "200px", minWidth: "200px" }}
+            <div className='sm:flex-initial w-full  sm:w-56 lg:w-80 bg-slate-100 p-2 sm:p-2 ml-0 mb-2 sm:mb-0 md:ml-2 scale-100 hover:scale-105 transition-all relative'
             >
                 <Link href={`/product/${product.id}`}>
                     {get_cover_image() !== undefined ?
-                        <img src={get_cover_image().url} alt={product.Category?.name} /> :
+                        <img 
+                        className='m-auto'
+                        src={get_cover_image().url} 
+                        alt={`${product.Category?.name}, g1 garlic for sale`} /> :
                         product.Category?.name === "G1 Garlic Dry" ?
-                            <img src="/images/g1garlic-dry-no-image.jpg" alt={product.Category?.name} />
+                            <img src="/images/g1garlic-dry-no-image.jpg" alt={`${product.Category?.name}, g1 garlic for sale`} />
                             :
-                            <img src="/images/g1garlic-wet-no-image.jpg" alt={product.Category?.name} />
+                            <img src="/images/g1garlic-wet-no-image.jpg" alt={`${product.Category?.name}, g1 garlic for sale`} />
                     }
                 </Link>
                 <div className='absolute top-0 right-0 m-4 p-1 bg-opacity-50 rounded-full text-xs px-2 bg-white'>{product._count.images}</div>

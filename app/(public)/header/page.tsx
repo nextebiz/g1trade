@@ -231,6 +231,126 @@ export default function HeaderPublic({ params: { session } }: Props) {
                 >
 
                     <div className='text-lg'>
+
+
+                        {session?.user.role === "BUYER" ?
+                           <div>
+                          
+                           <div className='mb-4'>
+                               <Link onClick={() => {
+                                   onClose()
+                               }} className="hover:text-gray-200" href="/buyer">
+                                   <div className='flex items-center'>
+                                       <div className='text-sm mr-3'>
+                                           <DatabaseOutlined />
+                                       </div>
+                                       <div>
+                                           My Buyer Account
+                                       </div>
+                                   </div>
+                               </Link>
+                           </div>
+                           <div className='mb-4'>
+                               <Link onClick={() => {
+                                   onClose()
+                               }} className="hover:text-gray-200" href="/signin/verify_info#">
+                                   <div className='flex items-center'>
+                                       <div className='text-sm mr-3'>
+                                           <ShoppingCartOutlined />
+                                       </div>
+                                       <div>
+                                           My Orders
+                                       </div>
+                                   </div>
+                               </Link>
+                           </div>
+                           <div className='mb-4'>
+                               <Link onClick={() => {
+                                   onClose()
+                               }} className="hover:text-gray-200" href="/signin/verify_info#">
+                                   <div className='flex items-center'>
+                                       <div className='text-sm mr-3'>
+                                           <WhatsAppOutlined />
+                                       </div>
+                                       <div>
+                                           My Contact Info
+                                       </div>
+                                   </div>
+                               </Link>
+                           </div>
+                           <div className='mb-4'>
+                               <Link onClick={(e) => {
+                                   e.preventDefault()
+                                   onClose()
+                                   signOut()
+                               }} className="hover:text-gray-200" href="#">
+                                   <div className='flex items-center'>
+                                       <div className='text-sm mr-3'>
+                                           <LogoutOutlined />
+                                       </div>
+                                       <div>
+                                           Sign Out
+                                       </div>
+                                   </div>
+                               </Link>
+                           </div>
+                       </div>
+                            :
+                            ""
+                        }
+                        {session?.user.role === "SELLER" ?
+                            <div>
+                                <div className='mb-4'>
+                                    <Link onClick={() => {
+                                        onClose()
+                                    }} className="hover:text-gray-200" href="/seller">
+                                        <div className='flex items-center'>
+                                            <div className='text-sm mr-3'>
+                                                <LoginOutlined />
+                                            </div>
+                                            <div>
+                                                My Seller Account
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className='mb-4'>
+                                    <Link onClick={() => {
+                                        onClose()
+                                    }} className="hover:text-gray-200" href="/buyer">
+                                        <div className='flex items-center'>
+                                            <div className='text-sm mr-3'>
+                                                <DatabaseOutlined />
+                                            </div>
+                                            <div>
+                                                My Buyer Account
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className='mb-4'>
+                                    <Link onClick={(e) => {
+                                        e.preventDefault()
+                                        onClose()
+                                        signOut()
+                                    }} className="hover:text-gray-200" href="#">
+                                        <div className='flex items-center'>
+                                            <div className='text-sm mr-3'>
+                                                <LogoutOutlined />
+                                            </div>
+                                            <div>
+                                                Sign Out
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                            :
+                            ""
+                        }
+                        <div className='my-3 '>
+                            <hr className='border-slate-600' />
+                        </div>
                         <div className='mb-4'>
                             <Link onClick={() => {
                                 onClose()
@@ -240,7 +360,7 @@ export default function HeaderPublic({ params: { session } }: Props) {
                                         <RightOutlined />
                                     </div>
                                     <div>
-                                        G1 Garlic For Sale
+                                        Home
                                     </div>
                                 </div>
                             </Link>
@@ -347,7 +467,7 @@ export default function HeaderPublic({ params: { session } }: Props) {
 
                                     </Link></li>
                             </ul>
-                            <div className=" flex justify-end items-end space-x-5 ">
+                            <div className=" flex justify-end items-end space-x-2 md:space-x-5 ">
                                 {session?.user ?
                                     <div className='flex items-center'>
                                         <div className='mr-2 text-xs  text-right hidden md:block'>{session?.user.name}</div>
@@ -377,7 +497,7 @@ export default function HeaderPublic({ params: { session } }: Props) {
 
                                         }} href={"/signin"}>
                                             <div className='  flex flex-row justify-center items-center' >
-                                                <div className='p-1 whitespace-nowrap'>Sign in</div>
+                                                <div className='p-1 whitespace-nowrap text-xs sm:text-base'>Sign in</div>
                                                 <svg style={{ color: 'white' }} xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" className="bi bi-box-arrow-in-right" viewBox="0 0 16 16"> <path fillRule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" fill="white" /> <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" fill="white" /> </svg>
                                             </div>
                                         </Link>

@@ -278,7 +278,7 @@ export default function VerifyInfo() {
             </div>
 
             :
-            <div className='flex'>
+            <div className='flex p-3 md:p-0'>
               <div>
                 <Spin />
               </div>

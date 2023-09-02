@@ -30,8 +30,6 @@ export async function POST(req: Request, res: Response) {
         }
     })
 
-    console.log(best_products)
-
     let result = best_products.map(product => {
         return product.productId
     })
