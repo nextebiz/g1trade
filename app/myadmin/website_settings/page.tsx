@@ -27,6 +27,7 @@ export default function AdminSettings() {
 
 
     const onFinish = (values: any) => {
+
         saveSettings()
     };
 
@@ -48,6 +49,10 @@ export default function AdminSettings() {
         if (response_settings.status === 200) {
             setIsSaving(false)
             setIsSaved(true)
+        } else {
+            setIsSaving(false)
+            setIsSaved(true)
+            alert("Failed to update")
         }
     }
 
@@ -56,15 +61,16 @@ export default function AdminSettings() {
             const fetch_settings = await fetch("/api/public/website_settings", { method: "POST" })
             const response_settings = await fetch_settings.json();
 
-            setSettingId(response_settings.data.id)
-            setGoogleLogin(response_settings.data.google_login)
-            setFacebookLogin(response_settings.data.facebook_login)
-            setTwitterLogin(response_settings.data.twitter_login)
-            setPinterestLogin(response_settings.data.pinterest_login)
-            setHowToBuyVideo(response_settings.data.how_to_buy_video)
-            setHowToSellVideo(response_settings.data.how_to_sell_video)
+            if (response_settings.status === 200) {
+                setSettingId(response_settings.data.id)
+                setGoogleLogin(response_settings.data.google_login)
+                setFacebookLogin(response_settings.data.facebook_login)
+                setTwitterLogin(response_settings.data.twitter_login)
+                setPinterestLogin(response_settings.data.pinterest_login)
+                setHowToBuyVideo(response_settings.data.how_to_buy_video)
+                setHowToSellVideo(response_settings.data.how_to_sell_video)
+            }
             setPageLoaded(true)
-
         }
         getSettings()
     }, [])
