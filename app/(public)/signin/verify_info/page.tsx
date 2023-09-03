@@ -5,6 +5,7 @@ import { CheckCircleOutlined, ExclamationCircleOutlined, PhoneOutlined, WhatsApp
 import { Button, Spin, Input, Form, Select, ConfigProvider, message, Space } from 'antd';
 import Link from 'next/link';
 import { getUserFromSession } from '@/utils/getUserFromSession';
+import getRandomKeyword from '@/utils/getRandomKeyword';
 
 export default function VerifyInfo() {
 
@@ -129,7 +130,9 @@ export default function VerifyInfo() {
                 </div> : <div className='flex'  >
                   {pathname === "/buyer/profile" ? "" :
                     <div className='w-96 hidden md:block'>
-                      <img src='/images/g1-garlic-for-sale.jpg' />
+                      <img src='/images/g1-garlic-for-sale.jpg' 
+                         alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                         />
                     </div>
                   }
                   <div className='m-5 md:ml-5'>

@@ -36,7 +36,7 @@ const search = createSlice({
       return { ...state, take: action.payload };
     },
     setSearchResult: (state, action: PayloadAction<Product>) => {
-      // console.log(action);
+      // console.log(action); 
 
       // if(action.payload.id === )
 
@@ -65,6 +65,25 @@ const search = createSlice({
     setRefreshSearch: (state, action: PayloadAction<boolean>) => {
       return { ...state, refresh_search: action.payload };
     },
+    setProductLike: (state, action: PayloadAction<any>) => {
+      const product = action.payload.product;
+      const perform = action.payload.perform;
+      const tmpState = { ...state };
+
+      tmpState.search_result = tmpState.search_result.map((myproduct) => {
+        if (myproduct.id === product.id) {
+          if (perform === "add") {
+            myproduct._count.ProductLikes += 1;
+          }
+          if (perform === "remove") {
+            myproduct._count.ProductLikes -= 1;
+          }
+        }
+        return myproduct;
+      });
+
+      return void(tmpState);
+    },
   },
 });
 
@@ -79,5 +98,6 @@ export const {
   setSearchLoaded,
   resetSearchResult,
   setRefreshSearch,
+  setProductLike,
 } = search.actions;
 export default search.reducer;

@@ -12,6 +12,7 @@ import {
     message
 } from 'antd';
 import { getUserFromSession } from '@/utils/getUserFromSession';
+import getRandomKeyword from '@/utils/getRandomKeyword';
 
 const { TextArea } = Input;
 
@@ -41,10 +42,10 @@ export default function Contact() {
         form_data.set("user_email", user?.email)
         form_data.set("message", message_text)
 
-        const fetch_send_message = await fetch("/api/public/contact", { 
-            method: "POST", 
+        const fetch_send_message = await fetch("/api/public/contact", {
+            method: "POST",
             body: form_data,
-            next: { revalidate: 300 } 
+            next: { revalidate: 300 }
         })
         const response_message = await fetch_send_message.json();
         setIsSaving(false)
@@ -87,7 +88,7 @@ export default function Contact() {
 
             <div className='flex flex-wrap bg-green-200'>
                 <div className='bg-slate-200 md:flex-1 md:p-5' >
-                    <img src='/images/g1-garlic-for-sale.jpg' />
+                    <img src='/images/g1-garlic-for-sale.jpg' alt={`${getRandomKeyword()}`} />
                 </div>
                 <div className='bg-slate-100 flex-1 md:flex-1 pt-5 md:pt-5 md:p-5'>
 

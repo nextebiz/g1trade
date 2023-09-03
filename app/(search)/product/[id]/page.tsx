@@ -12,12 +12,16 @@ import dayjs from 'dayjs';
 import ProductRatings from '../rating/page';
 import { FacebookShareButton, WhatsappShareButton } from 'react-share';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/app/GlobalRedux/store';
+import { setProductLike } from '@/app/GlobalRedux/Features/search';
+import getRandomKeyword from '@/utils/getRandomKeyword';
 
 
 
 export default function ProductDisplay() {
+
+  const dispatch = useDispatch()
 
   const params = useParams();
   const pathName = usePathname();
@@ -129,7 +133,26 @@ export default function ProductDisplay() {
         setTotalLikes(response_save.data.likes)
         if (response_save.data.liked === "yes") {
           setLike(true)
+          if (search_result.length > 0) {
+            dispatch(setProductLike({
+              product: product,
+              perform: "add"
+            }))
+          }
+          // product._count.ProductLikes += 1;
+        } else {
+          // product._count.ProductLikes -= 1;
+          setLike(false)
+          if (search_result.length > 0) {
+            dispatch(setProductLike({
+              product: product,
+              perform: "remove"
+            }))
+          }
         }
+
+        // console.log(product)
+
         setIsSaved(true)
       } else {
         setIsSaved(false)
@@ -284,6 +307,7 @@ export default function ProductDisplay() {
           find_product = response_product.data;
           setProduct(response_product.data)
         }
+        // console.log(find_product)
 
         // if (response_product?.like === "yes") {
         //   setLike(true)
@@ -377,7 +401,9 @@ export default function ProductDisplay() {
 
                     <div className='flex w-full bg-slate-300 mb-3 md:mb-0'>
                       <div className='bg-slate-300 flex-1  border-r border-r-slate-400'>
-                        <img src={selected_image_url} alt='img' className='p-1 md:p-2 w-full' />
+                        <img src={selected_image_url}
+                          alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                          className='p-1 md:p-2 w-full' />
                       </div>
 
                       {product?.images?.length > 1 ?
@@ -389,7 +415,10 @@ export default function ProductDisplay() {
 
                               }}
                               className='mb-1 md:mb-2 cursor-pointer'>
-                              <img src={my_image?.url} alt='img' className=' md:rounded-lg' />
+
+                              <img src={my_image?.url}
+                                alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                className=' md:rounded-lg' />
                             </div>
                           })}
 
@@ -412,7 +441,7 @@ export default function ProductDisplay() {
                           if (user?.id === undefined) {
                             router.push("/signin")
                           } else {
-                            setLike(!like)
+                            // setLike(!like)
                             setLikeClicked(true)
                           }
                         }} className='scale-100 hover:scale-110 transition-all hover:cursor-pointer select-none'>

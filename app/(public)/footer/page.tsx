@@ -4,6 +4,7 @@ import React from 'react'
 import { MessageOutlined, PhoneOutlined } from "@ant-design/icons"
 import TopCities from './top_cities/page'
 import BestSellers from './best_sellers/page'
+import getRandomKeyword from '@/utils/getRandomKeyword'
 
 export default function FooterPublic() {
 
@@ -16,7 +17,7 @@ export default function FooterPublic() {
           <div className="w-64  flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <Link className="text-3xl flex justify-center sm:justify-start  font-bold font-heading " href="/">
               {/* eslint-disable */}
-              <img className='' src='/images/logo/g1trade-logo-g1-garlic-sale-pakistan.svg?v-1' style={{ width: "150px" }} alt="" />
+              <img className='' src='/images/logo/g1trade-logo-g1-garlic-sale-pakistan.svg?v-1' style={{ width: "150px" }} alt={`${getRandomKeyword()}`}  />
             </Link>
             <p className="mt-3 text-sm text-gray-100">G1 Garlic Trading Platform. Buy & Sell Fresh and Dry G1 Garlic from All Major Cities of Pakistan.</p>
 

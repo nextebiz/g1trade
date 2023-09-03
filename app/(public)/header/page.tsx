@@ -13,6 +13,7 @@ import { setSelectedCategory, setSelectedCity, setSelectedProvince, setSkip } fr
 
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/GlobalRedux/store';
+import getRandomKeyword from '@/utils/getRandomKeyword';
 
 interface Props {
     params: {
@@ -432,7 +433,7 @@ export default function HeaderPublic({ params: { session } }: Props) {
                                     }
                                 }}
                                 className="text-3xl font-bold font-heading w-24 sm:w-32 md:w-40" href={pathname === "/" ? "/" : "/"}>
-                                <img src='/images/logo/g1trade-logo-g1-garlic-sale-pakistan.svg?v-1' style={{ width: "150px" }} alt="" />
+                                <img src='/images/logo/g1trade-logo-g1-garlic-sale-pakistan.svg?v-1' style={{ width: "150px" }} alt={`${getRandomKeyword()}`}  />
                             </Link>
                             <ul className="text-sm md:text-md lg:text-md flex px-2 md:px-4 mx-auto font-semibold font-heading space-x-3 lg:space-x-5">
                                 <li className=' hidden md:block '>

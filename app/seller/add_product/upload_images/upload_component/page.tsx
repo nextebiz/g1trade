@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { CheckCircleOutlined, ExclamationCircleOutlined, LoadingOutlined, PlusOutlined, EyeOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Button, Modal, Spin, message, Popconfirm, Tooltip } from 'antd';
 import Link from 'next/link';
+import getRandomKeyword from '@/utils/getRandomKeyword';
 // import Image from 'next/image';
 // import Image from 'antd';
 
@@ -233,7 +234,10 @@ export default function UploadComponent({ params: { imageProduct, save_default_i
                 {
                     init_data.url !== "" ?
                         <div style={{ width: "200px", height: "200px" }} className='relative'>
-                            <img src={init_data.url} className='object-contain' alt='product image' style={{ width: "200px", height: "200px" }} />
+                            <img 
+                            src={init_data.url} className='object-contain'
+                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`} 
+                            style={{ width: "200px", height: "200px" }} />
 
                             <div className='absolute top-0  bg-opacity-10 w-full h-full flex justify-center items-center'>
                                 <div className='scale-100 hover:scale-125 mr-2 transition-all'>

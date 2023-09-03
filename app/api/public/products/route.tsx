@@ -20,8 +20,6 @@ export async function POST(req: Request, res: Response) {
     if (order_by === null) {
         order_by = "latest"
     }
-    console.log(order_by)
-
 
     let citySearch = {}
     let categorySearch = {}

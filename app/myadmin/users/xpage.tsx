@@ -4,6 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import { Spin } from 'antd'
 import { InfoCircleOutlined } from "@ant-design/icons"
 import { useRouter } from "next/navigation"
+import getRandomKeyword from '@/utils/getRandomKeyword'
 
 export default function Admin_Usersx() {
     const searchParams = useSearchParams()
@@ -35,7 +36,7 @@ export default function Admin_Usersx() {
         const users_fetch = await fetch("/api/myadmin/users", {
             method: "post",
             body: data,
-            next: { revalidate: 300 } 
+            next: { revalidate: 300 }
         })
         const users_data = await users_fetch.json()
         setUsers(users_data.data.users)
@@ -72,7 +73,7 @@ export default function Admin_Usersx() {
                     </button>
 
                     <button
-                         onClick={async () => {
+                        onClick={async () => {
                             const params = new URLSearchParams()
                             params.set("take", "4")
                             params.set("skip", "0")
@@ -119,7 +120,9 @@ export default function Admin_Usersx() {
                                             <div key={user.id} className='bg-white border rounded-lg relative '>
                                                 <div className='flex p-1  pb-4 pt-4 '>
                                                     <div className=' mr-2 ' style={{ width: "70px", height: "70px" }}>
-                                                        <img src={user.image} className='object-contain rounded-full border' />
+                                                        <img src={user.image} className='object-contain rounded-full border'
+                                                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                                        />
                                                     </div>
                                                     <div className='bg-slate-200 w-full p-4'>
                                                         <h2 className='text-md'>{user.name}</h2>

@@ -5,6 +5,7 @@ import { Button, Spin } from 'antd';
 import Link from 'next/link';
 import { WhatsAppOutlined, PhoneOutlined } from "@ant-design/icons"
 import { getUserFromSession } from '@/utils/getUserFromSession';
+import getRandomKeyword from '@/utils/getRandomKeyword';
 
 export default function Profile() {
 
@@ -243,7 +244,7 @@ export default function Profile() {
                                                         :
                                                         "/images/g1garlic-wet-no-image.jpg"
 
-                                            } className='object-cover w-full h-80 m-auto' alt={product.Category.name} />
+                                            } className='object-cover w-full h-80 m-auto' alt={`${product.Category.name}, ${getRandomKeyword()}`} />
 
                                         </div>
                                         <div className='bg-white absolute top-1 right-1 p-1 bg-opacity-80 rounded-lg px-3'>

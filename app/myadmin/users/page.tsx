@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Button, Spin, Select, Space } from 'antd';
 import dayjs from 'dayjs';
+import getRandomKeyword from '@/utils/getRandomKeyword';
 
 
 export default function Admin_Users() {
@@ -111,7 +112,9 @@ export default function Admin_Users() {
                                                     <div key={user.id} className='bg-slate-100  border rounded-lg relative '>
                                                         <div className='flex p-1  pb-4 pt-4 '>
                                                             <div className=' mr-2 ' style={{ width: "70px", height: "70px" }}>
-                                                                <img src={user.image} className='object-contain rounded-full border' />
+                                                                <img src={user.image} className='object-contain rounded-full border'
+                                                                   alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                                                />
                                                             </div>
                                                             <div className='w-full p-1'>
                                                                 <div className='flex mb-3'>

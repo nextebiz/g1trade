@@ -1,4 +1,5 @@
 'use client'
+import getRandomKeyword from '@/utils/getRandomKeyword'
 // import { Session } from 'next-auth'/
 import { Session } from 'next-auth'
 import Link from 'next/link'
@@ -41,7 +42,11 @@ export default function BuyerAction({ params: { session } }: IProps) {
                                             <h1 className="title-font text-lg font-medium  mb-3">START <span className='text-green-500'>BUYING</span></h1>
                                             <p className=" mb-3">Buy from thousands of trusted sellers on digital market. Communicate with the sellers before placing your first order. </p>
                                         </div>
-                                        <img className="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog" />
+                                        <img 
+                                        className="lg:h-48 md:h-36 w-full object-cover object-center" 
+                                        src="https://dummyimage.com/720x400" 
+                                        alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                        />
 
                                     </div>
                                 </Link>
@@ -54,7 +59,11 @@ export default function BuyerAction({ params: { session } }: IProps) {
                                                 Apply for a seller account and start selling in online community of sellers and buyers.
                                             </p>
                                         </div>
-                                        <img className="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog" />
+                                        <img 
+                                        className="lg:h-48 md:h-36 w-full object-cover object-center" 
+                                        src="https://dummyimage.com/720x400" 
+                                        alt={`Sell G1 Garlic, ${getRandomKeyword()}`} 
+                                        />
 
                                     </div>
                                 </Link>

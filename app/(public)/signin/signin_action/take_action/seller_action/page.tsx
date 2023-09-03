@@ -1,3 +1,4 @@
+import getRandomKeyword from '@/utils/getRandomKeyword'
 import { Session } from 'next-auth'
 import Link from 'next/link'
 import React from 'react'
@@ -26,7 +27,10 @@ export default function SellerAction({ params: { session } }: Props) {
 
                                 <Link href={"/buyer"} className="p-4 md:w-1/2 scale-100 hover:scale-105 transition-all">
                                     <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                        <img className="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog" />
+                                        <img
+                                            className="lg:h-48 md:h-36 w-full object-cover object-center"
+                                            src="https://dummyimage.com/720x400"
+                                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`} />
 
                                         <div className="p-6">
                                             <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">BROWSE SELLERS MARKET</h2>
@@ -37,7 +41,11 @@ export default function SellerAction({ params: { session } }: Props) {
                                 </Link>
                                 <Link href={"/seller"} className="p-4 md:w-1/2 scale-100 hover:scale-105 transition-all">
                                     <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                        <img className="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog" />
+                                        <img className="lg:h-48 md:h-36 w-full object-cover object-center"
+                                            src="https://dummyimage.com/720x400"
+
+                                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                        />
                                         <div className="p-6">
                                             <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">SELL YOUR STOCK</h2>
                                             <h1 className="title-font text-lg font-medium  mb-3">START <span className='text-green-500'>SELLING</span></h1>
