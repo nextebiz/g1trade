@@ -500,7 +500,7 @@ export default function ProductDisplay() {
 
                             <div className='mr-5 text-center'>
                               <Link onClick={() => {
-                                navigator.clipboard.writeText(`http://localhost:3000/product/${product.id}`)
+                                navigator.clipboard.writeText(`https://g1trade.com/product/${product.id}`)
                                 openNotification('topLeft')
                               }} href={''}>
                                 <div className='text-2xl'>

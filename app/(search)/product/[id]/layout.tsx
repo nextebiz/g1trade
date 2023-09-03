@@ -88,10 +88,10 @@ export async function generateMetadata({ params: { id } }: Props2) {
             if (product?.id !== undefined) {
                 // console.log(images_to_post)
                 return {
-                    title: product.title + " | G1 Garlic Mandi - G1Trade.com",
+                    title: product.title + " | Buy & Sell G1 Garlic - G1Trade.com",
                     description: product.description,
                     openGraph: {
-                        title: product.title,
+                        title: product.title + ", Buy & Sell G1 Garlic",
                         description: product.description,
                         // url: `${process.env.NEXT_PUBLIC_SERVER_PATH}`,
                         siteName: 'G1Trade.com',
