@@ -12,7 +12,6 @@ import {
     message
 } from 'antd';
 import { getUserFromSession } from '@/utils/getUserFromSession';
-import getRandomKeyword from '@/utils/getRandomKeyword';
 
 const { TextArea } = Input;
 
@@ -88,7 +87,7 @@ export default function Contact() {
 
             <div className='flex flex-wrap bg-green-200'>
                 <div className='bg-slate-200 md:flex-1 md:p-5' >
-                    <img src='/images/g1-garlic-for-sale.jpg' alt={`${getRandomKeyword()}`} />
+                    <img src='/images/g1-garlic-for-sale.jpg' alt="where are g1 garlic buyers" />
                 </div>
                 <div className='bg-slate-100 flex-1 md:flex-1 pt-5 md:pt-5 md:p-5'>
 

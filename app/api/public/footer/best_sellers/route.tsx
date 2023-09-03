@@ -62,6 +62,8 @@ export async function POST(req: Request, res: Response) {
         }
 
     })
+    await prisma.$disconnect();
+
 
     return NextResponse.json({
         msg: "best sellers",

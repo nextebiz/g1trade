@@ -1,5 +1,4 @@
 'use client'
-import getRandomKeyword from '@/utils/getRandomKeyword'
 // import { Session } from 'next-auth'/
 import { Session } from 'next-auth'
 import Link from 'next/link'
@@ -45,7 +44,7 @@ export default function BuyerAction({ params: { session } }: IProps) {
                                         <img 
                                         className="lg:h-48 md:h-36 w-full object-cover object-center" 
                                         src="https://dummyimage.com/720x400" 
-                                        alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                        alt={`Sell G1 Garlic`}
                                         />
 
                                     </div>
@@ -62,7 +61,7 @@ export default function BuyerAction({ params: { session } }: IProps) {
                                         <img 
                                         className="lg:h-48 md:h-36 w-full object-cover object-center" 
                                         src="https://dummyimage.com/720x400" 
-                                        alt={`Sell G1 Garlic, ${getRandomKeyword()}`} 
+                                        alt={`Sell G1 Garlic online`} 
                                         />
 
                                     </div>

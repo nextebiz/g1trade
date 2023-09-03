@@ -4,7 +4,6 @@ import { useSearchParams } from 'next/navigation'
 import { Spin } from 'antd'
 import { InfoCircleOutlined } from "@ant-design/icons"
 import { useRouter } from "next/navigation"
-import getRandomKeyword from '@/utils/getRandomKeyword'
 
 export default function Admin_Usersx() {
     const searchParams = useSearchParams()
@@ -121,7 +120,7 @@ export default function Admin_Usersx() {
                                                 <div className='flex p-1  pb-4 pt-4 '>
                                                     <div className=' mr-2 ' style={{ width: "70px", height: "70px" }}>
                                                         <img src={user.image} className='object-contain rounded-full border'
-                                                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                                            alt={`Sell G1 Garlic`}
                                                         />
                                                     </div>
                                                     <div className='bg-slate-200 w-full p-4'>

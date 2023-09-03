@@ -1,4 +1,4 @@
-const keywords = [
+export const keywords = [
   "G1 Garlic for Sale",
   "Sell G1 Garlic",
   "where are g1 garlic buyers",
@@ -44,5 +44,7 @@ const getRandomKeyword = () => {
   const keyword = keywords[newIndex];
   return keyword;
 };
+
+export const randomValue = getRandomKeyword()
 
 export default getRandomKeyword;

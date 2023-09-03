@@ -4,7 +4,6 @@ import { ExclamationCircleOutlined, PlusCircleOutlined, CheckOutlined, FormOutli
 import { Spin, Popconfirm, Button } from 'antd'
 import Link from 'next/link'
 import dayjs from 'dayjs';
-import getRandomKeyword from '@/utils/getRandomKeyword'
 
 export default function ManageProducts() {
   const [user, setUser] = useState<User>({} as User)
@@ -234,7 +233,7 @@ export default function ManageProducts() {
                                           className='border rounded-lg' 
                                           style={{ width: "50px" }} 
                                           src={image.url} 
-                                          alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                          alt={`how to Sell G1 Garlic`}
                                           />
                                         </div>
                                       })}

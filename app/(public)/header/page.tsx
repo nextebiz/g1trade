@@ -13,7 +13,6 @@ import { setSelectedCategory, setSelectedCity, setSelectedProvince, setSkip } fr
 
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/GlobalRedux/store';
-import getRandomKeyword from '@/utils/getRandomKeyword';
 
 interface Props {
     params: {
@@ -21,8 +20,6 @@ interface Props {
     }
 }
 export default function HeaderPublic({ params: { session } }: Props) {
-
-    // const [session, setSession] = useState<any>();
 
     const query_string = useSearchParams()
     const [open, setOpen] = useState(false);
@@ -235,67 +232,67 @@ export default function HeaderPublic({ params: { session } }: Props) {
 
 
                         {session?.user.role === "BUYER" ?
-                           <div>
-                          
-                           <div className='mb-4'>
-                               <Link onClick={() => {
-                                   onClose()
-                               }} className="hover:text-gray-200" href="/buyer">
-                                   <div className='flex items-center'>
-                                       <div className='text-sm mr-3'>
-                                           <DatabaseOutlined />
-                                       </div>
-                                       <div>
-                                           My Buyer Account
-                                       </div>
-                                   </div>
-                               </Link>
-                           </div>
-                           <div className='mb-4'>
-                               <Link onClick={() => {
-                                   onClose()
-                               }} className="hover:text-gray-200" href="/signin/verify_info#">
-                                   <div className='flex items-center'>
-                                       <div className='text-sm mr-3'>
-                                           <ShoppingCartOutlined />
-                                       </div>
-                                       <div>
-                                           My Orders
-                                       </div>
-                                   </div>
-                               </Link>
-                           </div>
-                           <div className='mb-4'>
-                               <Link onClick={() => {
-                                   onClose()
-                               }} className="hover:text-gray-200" href="/signin/verify_info#">
-                                   <div className='flex items-center'>
-                                       <div className='text-sm mr-3'>
-                                           <WhatsAppOutlined />
-                                       </div>
-                                       <div>
-                                           My Contact Info
-                                       </div>
-                                   </div>
-                               </Link>
-                           </div>
-                           <div className='mb-4'>
-                               <Link onClick={(e) => {
-                                   e.preventDefault()
-                                   onClose()
-                                   signOut()
-                               }} className="hover:text-gray-200" href="#">
-                                   <div className='flex items-center'>
-                                       <div className='text-sm mr-3'>
-                                           <LogoutOutlined />
-                                       </div>
-                                       <div>
-                                           Sign Out
-                                       </div>
-                                   </div>
-                               </Link>
-                           </div>
-                       </div>
+                            <div>
+
+                                <div className='mb-4'>
+                                    <Link onClick={() => {
+                                        onClose()
+                                    }} className="hover:text-gray-200" href="/buyer">
+                                        <div className='flex items-center'>
+                                            <div className='text-sm mr-3'>
+                                                <DatabaseOutlined />
+                                            </div>
+                                            <div>
+                                                My Buyer Account
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className='mb-4'>
+                                    <Link onClick={() => {
+                                        onClose()
+                                    }} className="hover:text-gray-200" href="/signin/verify_info#">
+                                        <div className='flex items-center'>
+                                            <div className='text-sm mr-3'>
+                                                <ShoppingCartOutlined />
+                                            </div>
+                                            <div>
+                                                My Orders
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className='mb-4'>
+                                    <Link onClick={() => {
+                                        onClose()
+                                    }} className="hover:text-gray-200" href="/signin/verify_info#">
+                                        <div className='flex items-center'>
+                                            <div className='text-sm mr-3'>
+                                                <WhatsAppOutlined />
+                                            </div>
+                                            <div>
+                                                My Contact Info
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className='mb-4'>
+                                    <Link onClick={(e) => {
+                                        e.preventDefault()
+                                        onClose()
+                                        signOut()
+                                    }} className="hover:text-gray-200" href="#">
+                                        <div className='flex items-center'>
+                                            <div className='text-sm mr-3'>
+                                                <LogoutOutlined />
+                                            </div>
+                                            <div>
+                                                Sign Out
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
                             :
                             ""
                         }
@@ -433,7 +430,7 @@ export default function HeaderPublic({ params: { session } }: Props) {
                                     }
                                 }}
                                 className="text-3xl font-bold font-heading w-24 sm:w-32 md:w-40" href={pathname === "/" ? "/" : "/"}>
-                                <img src='/images/logo/g1trade-logo-g1-garlic-sale-pakistan.svg?v-1' style={{ width: "150px" }} alt={`${getRandomKeyword()}`}  />
+                                <img src='/images/logo/g1trade-logo-g1-garlic-sale-pakistan.svg?v-1' style={{ width: "150px" }} alt="Sell G1 Garlic" />
                             </Link>
                             <ul className="text-sm md:text-md lg:text-md flex px-2 md:px-4 mx-auto font-semibold font-heading space-x-3 lg:space-x-5">
                                 <li className=' hidden md:block '>

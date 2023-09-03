@@ -15,9 +15,6 @@ import { FacebookShareButton, WhatsappShareButton } from 'react-share';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/app/GlobalRedux/store';
 import { setProductLike } from '@/app/GlobalRedux/Features/search';
-import getRandomKeyword from '@/utils/getRandomKeyword';
-
-
 
 export default function ProductDisplay() {
 
@@ -402,7 +399,7 @@ export default function ProductDisplay() {
                     <div className='flex w-full bg-slate-300 mb-3 md:mb-0'>
                       <div className='bg-slate-300 flex-1  border-r border-r-slate-400'>
                         <img src={selected_image_url}
-                          alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                          alt={`sale G1 Garlic`}
                           className='p-1 md:p-2 w-full' />
                       </div>
 
@@ -417,7 +414,7 @@ export default function ProductDisplay() {
                               className='mb-1 md:mb-2 cursor-pointer'>
 
                               <img src={my_image?.url}
-                                alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                alt={`buy g1 garlic`}
                                 className=' md:rounded-lg' />
                             </div>
                           })}

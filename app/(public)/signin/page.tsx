@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { Spin } from "antd";
 import { useRouter } from "next/navigation";
 import TwitterSigninButton from "./twitter_button/page";
-import getRandomKeyword from "@/utils/getRandomKeyword";
 
 export default function SignIn() {
     const [providers, setProviders] = useState<any>()
@@ -140,7 +139,7 @@ export default function SignIn() {
                     <div className="mt-10 lg:mt-0 lg:col-span-5 lg:flex">
                         <img src="/images/g1-trade-buy-sell-g1-garlic.jpg"
 
-                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                            alt={`Sell G1 Garlic`}
                             className="border border-slate-600" />
                     </div>
                 </div>

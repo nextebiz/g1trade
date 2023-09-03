@@ -5,7 +5,6 @@ import { ShoppingOutlined, ShoppingFilled, HeartOutlined, HeartFilled, StarOutli
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Rate } from 'antd';
-import getRandomKeyword from '@/utils/getRandomKeyword';
 // import { ApartmentOutlined, MessageOutlined, ProfileOutlined, AppstoreAddOutlined, AppstoreOutlined, ShoppingCartOutlined } from "@ant-design/icons"
 interface Props {
     params: {
@@ -88,12 +87,12 @@ export default function RightPanelProduct({ params: { product } }: Props) {
                         <img
                             className='m-auto'
                             src={get_cover_image().url}
-                            alt={`${product.Category?.name}, ${getRandomKeyword()}`} /> :
+                            alt={`${product.Category?.name}`} /> :
                         product.Category?.name === "G1 Garlic Dry" ?
                             <img 
-                            src="/images/g1garlic-dry-no-image.jpg" alt={`${product.Category?.name},  ${getRandomKeyword()}`} />
+                            src="/images/g1garlic-dry-no-image.jpg" alt={`${product.Category?.name}`} />
                             :
-                            <img src="/images/g1garlic-wet-no-image.jpg" alt={`${product.Category?.name},  ${getRandomKeyword()}`} />
+                            <img src="/images/g1garlic-wet-no-image.jpg" alt={`${product.Category?.name}`} />
                     }
                 </Link>
                 <div className='absolute top-0 right-0 m-4 p-1 bg-opacity-50 rounded-full text-xs px-2 bg-white'>{product._count.images}</div>

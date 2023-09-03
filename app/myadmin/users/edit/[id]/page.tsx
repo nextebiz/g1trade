@@ -7,7 +7,6 @@ import { Button, Checkbox, Form, Input, Spin, Select, Space, DatePicker } from '
 import dayjs from 'dayjs';
 import TopMessage from '@/app/components/alerts/top_message/page';
 import { useRouter } from 'next/navigation';
-import getRandomKeyword from '@/utils/getRandomKeyword';
 
 
 export default function EditPage() {
@@ -303,7 +302,7 @@ export default function EditPage() {
                                                         }} />
                                                         <img src={`${user?.image}`}
                                                         
-                                                        alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
+                                                        alt={`Sell G1 Garlic`}
                                                         />
                                                     </div>
                                                 </Form.Item>

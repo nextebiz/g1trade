@@ -1,4 +1,3 @@
-import getRandomKeyword from '@/utils/getRandomKeyword'
 import { Session } from 'next-auth'
 import Link from 'next/link'
 import React from 'react'
@@ -30,7 +29,7 @@ export default function SellerAction({ params: { session } }: Props) {
                                         <img
                                             className="lg:h-48 md:h-36 w-full object-cover object-center"
                                             src="https://dummyimage.com/720x400"
-                                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`} />
+                                            alt="g1 garlic sell" />
 
                                         <div className="p-6">
                                             <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">BROWSE SELLERS MARKET</h2>
@@ -43,9 +42,7 @@ export default function SellerAction({ params: { session } }: Props) {
                                     <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                                         <img className="lg:h-48 md:h-36 w-full object-cover object-center"
                                             src="https://dummyimage.com/720x400"
-
-                                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`}
-                                        />
+                                            alt="g1 garlic sell online" />
                                         <div className="p-6">
                                             <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">SELL YOUR STOCK</h2>
                                             <h1 className="title-font text-lg font-medium  mb-3">START <span className='text-green-500'>SELLING</span></h1>

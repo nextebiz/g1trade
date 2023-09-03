@@ -12,6 +12,8 @@ export async function POST(req: Request, res: Response) {
 
         })
     }
+    await prisma.$disconnect();
+
     return NextResponse.json({
         status:404,
         msg: "failed to load website settings",

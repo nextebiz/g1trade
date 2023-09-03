@@ -54,7 +54,7 @@ export default function PreviewPicture() {
                                 Picture not found!
                             </div>
                             :
-                            <img src={picture_url} />
+                            <img src={picture_url} alt='how to sell g1 garlic' />
                         : <div>
                             <Spin /> <span className='ml-2'>Loading...</span>
                         </div>

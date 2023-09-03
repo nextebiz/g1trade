@@ -3,20 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { CheckCircleOutlined, ExclamationCircleOutlined, LoadingOutlined, PlusOutlined, EyeOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Button, Modal, Spin, message, Popconfirm, Tooltip } from 'antd';
 import Link from 'next/link';
-import getRandomKeyword from '@/utils/getRandomKeyword';
-// import Image from 'next/image';
-// import Image from 'antd';
-
-// id will be null if no image found in db
-// interface Props {
-//     params: {
-//         id: string,
-//         productId: string,
-//         url: string,
-//         user_id: string,
-//         public_id: string
-//     }
-// }
 
 interface Props {
     params: {
@@ -25,16 +11,6 @@ interface Props {
         product: Product
     }
 }
-
-// type InitData = {
-//     id: string,
-//     productId: string,
-//     url: string,
-//     user_id: string,
-//     public_id: string
-// }
-
-// export default function UploadComponent({ params: { id, productId, url, user_id, public_id } }: Props) {
 export default function UploadComponent({ params: { imageProduct, save_default_image, product } }: Props) {
 
     // if (imageProduct) {
@@ -58,8 +34,6 @@ export default function UploadComponent({ params: { imageProduct, save_default_i
         setConfirmLoading(true);
         const form_data = new FormData();
         // product_id, file_name, File are required
-
-        // let file_name = user.id + "_" + productId + "_" + Math.round(Date.now() / 1000)
 
         form_data.set("image_id", init_data.id)
         form_data.set("public_id", init_data.public_id)
@@ -236,7 +210,7 @@ export default function UploadComponent({ params: { imageProduct, save_default_i
                         <div style={{ width: "200px", height: "200px" }} className='relative'>
                             <img 
                             src={init_data.url} className='object-contain'
-                            alt={`Sell G1 Garlic, ${getRandomKeyword()}`} 
+                            alt={`Sell G1 Garlic`} 
                             style={{ width: "200px", height: "200px" }} />
 
                             <div className='absolute top-0  bg-opacity-10 w-full h-full flex justify-center items-center'>

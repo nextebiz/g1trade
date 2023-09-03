@@ -10,6 +10,8 @@ export async function POST(req: Request, res: Response) {
             twitter_login: true
         }
     })
+    await prisma.$disconnect();
+
     return NextResponse.json({
 
         msg: "done",

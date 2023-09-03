@@ -40,7 +40,10 @@ export async function POST(req: Request, res: Response) {
         to: "g1garlic.pk@gmail.com",
         subject: `New message from ${user_name} - G1Trade.com`,
         html: render(ContactFormTemplate({ params: { options: options } })),
-      });
+    });
+
+    await prisma.$disconnect();
+
 
     return NextResponse.json({
         status: 200,

@@ -38,7 +38,7 @@ export async function POST(req: Request, res: Response) {
             productId: product_id
         }
     })
-    await  prisma.$disconnect()
+    await prisma.$disconnect()
 
     return NextResponse.json({
         status: 200,

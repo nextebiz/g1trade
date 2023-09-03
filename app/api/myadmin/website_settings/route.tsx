@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request, res: Response) {
 
-    console.log("hi2")
+
 
     const form_data = await req.formData()
 
@@ -37,18 +37,7 @@ export async function POST(req: Request, res: Response) {
 
         }
     })
-
-    //  data: {
-    //             google_login: google_login.toLowerCase() === "true",
-    //             facebook_login: facebook_login.toLowerCase() === "true",
-    //             twitter_login: twitter_login.toLowerCase() === "true",
-    //             pinterest_login: pinterest_login.toLowerCase() === "true",
-    //             how_to_buy_video: how_to_buy_video,
-    //             how_to_sell_video: how_to_sell_video,
-    //         },
-    //         where: {
-    //             id: setting_id
-    //         }
+    await prisma.$disconnect();
 
     if (save_settings) {
         return NextResponse.json({

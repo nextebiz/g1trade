@@ -17,7 +17,7 @@ export async function POST(req: Request, res: Response) {
             userId: user_id
         }
     })
-    prisma.$disconnect();
+    await prisma.$disconnect();
     return NextResponse.json({
         msg: "Rating posted"
     })
