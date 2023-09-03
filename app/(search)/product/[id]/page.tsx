@@ -1,8 +1,8 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { useParams, usePathname, useRouter } from 'next/navigation'
-import { FacebookFilled, FacebookOutlined, ExclamationCircleOutlined, LoadingOutlined, HeartOutlined, HeartFilled, FieldTimeOutlined, DollarOutlined, CheckCircleOutlined, LoginOutlined, StarFilled, StarOutlined, LeftOutlined, ShoppingCartOutlined, WhatsAppOutlined, PhoneOutlined } from '@ant-design/icons'
-import { Button, Spin, Input, Form, Select, ConfigProvider, Rate } from 'antd';
+import { FacebookFilled, CopyOutlined, ExclamationCircleOutlined, LoadingOutlined, HeartOutlined, HeartFilled, FieldTimeOutlined, DollarOutlined, CheckCircleOutlined, LoginOutlined, StarFilled, StarOutlined, LeftOutlined, ShoppingCartOutlined, WhatsAppOutlined, PhoneOutlined } from '@ant-design/icons'
+import { Button, Spin, Input, Form, Select, ConfigProvider, Rate, Divider, Space, notification } from 'antd';
 import Link from 'next/link';
 import { getUserFromSession } from '@/utils/getUserFromSession';
 import { signIn } from 'next-auth/react';
@@ -15,8 +15,24 @@ import { FacebookShareButton, WhatsappShareButton } from 'react-share';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/app/GlobalRedux/store';
 import { setProductLike } from '@/app/GlobalRedux/Features/search';
+import type { NotificationPlacement } from 'antd/es/notification/interface';
+
+const Context = React.createContext({ name: 'Default' });
+
 
 export default function ProductDisplay() {
+  const [api, contextHolder] = notification.useNotification();
+
+
+  const openNotification = (placement: NotificationPlacement) => {
+    api.info({
+      message: `Product Link is Copied`,
+      description: <Context.Consumer>{({ name }) => `Now share the link in WhatsApp, Facebook, Groups, Blogs or anywhere`}</Context.Consumer>,
+      placement,
+    });
+  };
+  const contextValue = useMemo(() => ({ name: 'Ant Design' }), []);
+
 
   const dispatch = useDispatch()
 
@@ -373,7 +389,7 @@ export default function ProductDisplay() {
     <div className='' style={{ width: "100%" }}>
       <div style={{ height: "60px" }} className='bg-slate-700 flex items-center'>
         <div className='flex pl-2 md:pl-5 items-center'>
-          <Link href={'/?page=1'}>
+          <Link title={`${product.Category?.name}`} href={'/?page=1'}>
             <div className='text-2xl bg-slate-800 px-2 py-1 rounded-lg scale-100 hover:scale-110'>
               <LeftOutlined />
             </div>
@@ -399,7 +415,7 @@ export default function ProductDisplay() {
                     <div className='flex w-full bg-slate-300 mb-3 md:mb-0'>
                       <div className='bg-slate-300 flex-1  border-r border-r-slate-400'>
                         <img src={selected_image_url}
-                          alt={`sale G1 Garlic`}
+                          alt={`sell ${product.Category?.name}, ${product.title}`}
                           className='p-1 md:p-2 w-full' />
                       </div>
 
@@ -414,7 +430,7 @@ export default function ProductDisplay() {
                               className='mb-1 md:mb-2 cursor-pointer'>
 
                               <img src={my_image?.url}
-                                alt={`buy g1 garlic`}
+                                alt={`sell ${product.Category?.name}, ${product.title}`}
                                 className=' md:rounded-lg' />
                             </div>
                           })}
@@ -463,15 +479,39 @@ export default function ProductDisplay() {
                             >
                               {/* <FacebookIcon round size="32px" /> */}
                               <span className='text-2xl text-blue-600'><FacebookFilled /></span>
+                              <div className='text-xs'>
+                                Facebook
+                              </div>
                             </FacebookShareButton>
                           </div>
-                          <div className='mr-5'>
+                          <div className='mr-5 text-center'>
                             <WhatsappShareButton url={process.env.NEXT_PUBLIC_SERVER_PATH + pathName}
                             >
                               {/* <WhatsappIcon round size="32px" /> */}
                               <span className='text-2xl text-green-600'><WhatsAppOutlined /></span>
+                              <div className='text-xs'>
+                                WhatsApp
+                              </div>
                             </WhatsappShareButton>
+
                           </div>
+                          <Context.Provider value={contextValue}>
+                            {contextHolder}
+
+                            <div className='mr-5 text-center'>
+                              <Link onClick={() => {
+                                navigator.clipboard.writeText(`http://localhost:3000/product/${product.id}`)
+                                openNotification('topLeft')
+                              }} href={''}>
+                                <div className='text-2xl'>
+                                  <CopyOutlined />
+                                </div>
+                                <div className='text-xs'>
+                                  Copy Link
+                                </div></Link>
+                            </div>
+                          </Context.Provider>
+
                         </div>
 
                       </div>
@@ -832,7 +872,7 @@ export default function ProductDisplay() {
                             <div className='relative ml-0 ' style={{ width: "180px" }}>
 
 
-                              <Link href={`/signin`}>
+                              <Link title={`${product.title}`} href={`/signin`}>
                                 <div className='text-white text-2xl cursor-pointer rounded-full bg-yellow-500 flex justify-center items-center absolute'
                                   style={{ right: "-10px", top: "-8px", width: "50px", height: "50px" }}>
                                   <PhoneOutlined />
@@ -848,7 +888,7 @@ export default function ProductDisplay() {
                             <div className='relative ml-0 ' style={{ width: "180px" }}>
 
 
-                              <Link href={`/signin`}>
+                              <Link title={`sell ${product.Category?.name} ${product.title}`} href={`/signin`}>
                                 <div className='text-white text-2xl cursor-pointer rounded-full bg-green-500 flex justify-center items-center absolute'
                                   style={{ right: "-10px", top: "-8px", width: "50px", height: "50px" }}>
                                   <WhatsAppOutlined />
@@ -883,7 +923,7 @@ export default function ProductDisplay() {
                             <div className='relative ml-0 ' style={{ width: "180px" }}>
 
 
-                              <Link target='_blank' href={`//api.whatsapp.com/send?phone=${product?.User?.phone2}&text=${'hi there'}`}>
+                              <Link title={`Contact via WhatsApp G1 Garlic seller ${product.User.name} for ${product.title}`} target='_blank' href={`//api.whatsapp.com/send?phone=${product?.User?.phone2}&text=${'hi there'}`}>
                                 <div className='text-white text-2xl cursor-pointer rounded-full bg-green-500 flex justify-center items-center absolute'
                                   style={{ right: "-10px", top: "-8px", width: "50px", height: "50px" }}>
                                   <WhatsAppOutlined />
@@ -905,7 +945,7 @@ export default function ProductDisplay() {
                     <div className='flex flex-wrap items-center align-middle mt-5 mb-3 px-3'>
                       <p className=' mr-2'>Sold by:</p>
 
-                      <Link href={`/profile/${product?.User.id}`}>
+                      <Link title={`Call ${product.Category?.name} Seller ${product.title}`} href={`/profile/${product?.User.id}`}>
                         <span className='ml-0 md:ml-0 text-blue-500 mr-2'>{product?.User.name}</span>
                       </Link>
                     </div>

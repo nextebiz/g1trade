@@ -142,8 +142,10 @@ export default function HomePublic({ params: { session } }: Props) {
                     <span>Search G1 Garlic Sellers <span className='hidden md:inline-block'>Near You</span></span>
                     {selected_category?.id !== undefined || selected_province?.id !== undefined || selected_city?.id !== undefined ?
                       <span>
-                        <Link onClick={(e) => {
-
+                        <Link
+                        title={`${"sell G1 Garlic"}`}
+                        onClick={(e) => {
+                          
                           dispatch(setSelectedCategory({} as Category))
                           dispatch(setSelectedProvince({} as Province))
                           dispatch(setSelectedCity({} as City))
@@ -192,6 +194,7 @@ export default function HomePublic({ params: { session } }: Props) {
                         products_loaded ?
                           <div className='p-3'>
                             No results found. <Link
+                            title={`${"Sell g1 garlic"}`}
                               onClick={() => {
                                 dispatch(setSkip(0))
                                 dispatch(setSelectedCategory({} as Category))

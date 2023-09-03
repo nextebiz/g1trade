@@ -58,6 +58,7 @@ export default function BrowseByCities() {
                                                 :
                                                 <div>
                                                     <Link
+                                                   title={`G1 garlic for sale in ${province.name}`}
                                                         onClick={(e) => {
                                                             e.preventDefault()
 
@@ -94,6 +95,7 @@ export default function BrowseByCities() {
                                                             return <div key={i} className=''>
                                                                 {city._count.product > 0 ?
                                                                     <Link
+                                                                    title={`g1 garlic for sale in ${city.name}`}
                                                                         onClick={(e) => {
                                                                             e.preventDefault()
 

@@ -96,6 +96,7 @@ export default function SearchLeftPanel({ params: { showLeftPanel, openLeftPanel
               {selected_category?.id !== undefined ?
                 <div className='mr-5 text-sm'>
                   <Link
+                  title={`sell g1 garlic in ${selected_category.name}`}
                     onClick={(e) => {
                       e.preventDefault()
                       dispatch(setSkip(0))
@@ -110,6 +111,7 @@ export default function SearchLeftPanel({ params: { showLeftPanel, openLeftPanel
         {categories.map(category => {
           return <div key={category.id as string}>
             <Link
+            title={`${category.name} for sale`}
               onClick={(e) => {
                 dispatch(setSkip(0))
                 dispatch(setSelectedCategory(category))
@@ -147,6 +149,7 @@ export default function SearchLeftPanel({ params: { showLeftPanel, openLeftPanel
                 {selected_province?.id !== undefined ?
                   <div className='mr-5 text-sm'>
                     <Link
+                    title={`G1 garlic for sale in ${selected_province.name}`}
                       onClick={(e) => {
                         e.preventDefault()
                         dispatch(setSkip(0))
@@ -164,6 +167,7 @@ export default function SearchLeftPanel({ params: { showLeftPanel, openLeftPanel
           return <div key={province.id as string}>
             {province._count.product > 0 ?
               <Link
+              title={`G1 garlic for sale in ${province.name}`}
                 onClick={(e) => {
                   dispatch(setSkip(0))
                   dispatch(setSelectedProvince(province))
@@ -210,6 +214,7 @@ export default function SearchLeftPanel({ params: { showLeftPanel, openLeftPanel
                 {selected_city?.id !== undefined ?
                   <div className='mr-5 text-sm'>
                     <Link
+                    title={`G1 garlic for sale in ${selected_city.name}`}
                       onClick={(e) => {
                         e.preventDefault()
                         dispatch(setSkip(0))
@@ -225,6 +230,7 @@ export default function SearchLeftPanel({ params: { showLeftPanel, openLeftPanel
             return <div key={city.id as string}>
               {city._count.product > 0 ?
                 <Link
+                title={`Sell g1 garlic in ${city.name}`}
                   onClick={(e) => {
                     dispatch(setSkip(0))
                     dispatch(setSelectedCity(city))

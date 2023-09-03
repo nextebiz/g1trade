@@ -82,23 +82,23 @@ export default function RightPanelProduct({ params: { product } }: Props) {
             <div className='sm:flex-initial w-full  sm:w-56 lg:w-80 bg-slate-100 p-2 sm:p-2 ml-0 mb-2 sm:mb-0 md:ml-2 scale-100 hover:scale-105 transition-all relative'
             >
 
-                <Link href={`/product/${product.id}`}>
+                <Link title={`${product.Category.name} for sale, ${product.title}`} href={`/product/${product.id}`}>
                     {get_cover_image() !== undefined ?
                         <img
                             className='m-auto'
                             src={get_cover_image().url}
-                            alt={`${product.Category?.name}`} /> :
+                            alt={`${product.Category?.name} - ${product.title}`} /> :
                         product.Category?.name === "G1 Garlic Dry" ?
                             <img 
-                            src="/images/g1garlic-dry-no-image.jpg" alt={`${product.Category?.name}`} />
+                            src="/images/g1garlic-dry-no-image.jpg" alt={`sell ${product.Category?.name}, ${product.title}`} />
                             :
-                            <img src="/images/g1garlic-wet-no-image.jpg" alt={`${product.Category?.name}`} />
+                            <img src="/images/g1garlic-wet-no-image.jpg" alt={`sell ${product.Category?.name}, ${product.title}`} />
                     }
                 </Link>
                 <div className='absolute top-0 right-0 m-4 p-1 bg-opacity-50 rounded-full text-xs px-2 bg-white'>{product._count.images}</div>
             </div>
             <div className='px-3 sm:flex-1 '>
-                <Link href={`/product/${product.id}`}>
+                <Link title={`${product.Category.name} for sale, ${product.title}`}  href={`/product/${product.id}`}>
                     <div className='inline-block'>
                         <h2 className='text-xl  text-blue-500 hover:underline hover:text-green-600 capitalize'>{product.title}
 
@@ -156,7 +156,7 @@ export default function RightPanelProduct({ params: { product } }: Props) {
 
                             <Rate allowHalf disabled defaultValue={getAverageOfStars(product.rating as [])} />
                             <div className='flex ml-2 text-sm'>
-                                <Link href={`/product/${product.id}#reviews`}>
+                                <Link title={`review ${product.Category.name}`} href={`/product/${product.id}#reviews`}>
                                     <div className='text-blue-500'>
                                         {product.rating.length} Reviews
                                     </div>
@@ -179,7 +179,7 @@ export default function RightPanelProduct({ params: { product } }: Props) {
                 </div>
                 <div className='flex items-center align-middle'>
                     <p className='text-sm md:text-sm mr-2'>Sold by:</p>
-                    <Link href={`/profile/${product?.User.id}`}>
+                    <Link title={`g1 garlic sold by ${product.User.name}`} href={`/profile/${product?.User.id}`}>
                         <span className='ml-0 md:ml-0 text-blue-500 mr-2'>{product?.User.name}</span>
                     </Link>
 

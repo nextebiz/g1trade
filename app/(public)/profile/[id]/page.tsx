@@ -231,7 +231,7 @@ export default function Profile() {
                             const image_url = product.images[0]?.url
 
                             return <div key={product.id} className='m-2 w-80 mb-4 md:mb-2' >
-                                <Link href={`/product/${product.id}`}>
+                                <Link title={`sell ${product.Category.name}, ${product.title}`} href={`/product/${product.id}`}>
                                     <div className='bg-slate-100 p-0 relative rounded-b-lg overflow-hidden scale-100 hover:scale-105 transition-all'>
 
                                         <div className='h-80 w-full border border-slate-300' style={{ backgroundColor: "#e8e8e8" }}>
@@ -243,7 +243,7 @@ export default function Profile() {
                                                         :
                                                         "/images/g1garlic-wet-no-image.jpg"
 
-                                            } className='object-cover w-full h-80 m-auto' alt={`where can i sell g1 garlic`} />
+                                            } className='object-cover w-full h-80 m-auto' alt={`sell ${product.Category.name}, ${product.title}`} />
 
                                         </div>
                                         <div className='bg-white absolute top-1 right-1 p-1 bg-opacity-80 rounded-lg px-3'>
