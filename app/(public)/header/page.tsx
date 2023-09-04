@@ -251,7 +251,7 @@ export default function HeaderPublic({ params: { session } }: Props) {
                                 <div className='mb-4'>
                                     <Link onClick={() => {
                                         onClose()
-                                    }} className="hover:text-gray-200" href="/signin/verify_info#">
+                                    }} className="hover:text-gray-200" href="/buyer/orders#">
                                         <div className='flex items-center'>
                                             <div className='text-sm mr-3'>
                                                 <ShoppingCartOutlined />
